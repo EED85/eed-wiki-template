@@ -17,8 +17,9 @@ Open this repository in VS Code and select **Reopen in Container**. The
 container image is pinned to
 `ghcr.io/eed85/eed-wiki-runtime:{{ cookiecutter.runtime_image_tag }}` and is
 pulled without a local build. Set `MISTRAL_API_KEY` in the host environment
-before starting the container. `OPENAI_API_KEY`, `OPENAI_BASE_URL`, and
-`OPENAI_MODEL` configure Graphify's OpenAI-compatible document backend.
+before starting the container. Graphify defaults to Mistral's
+OpenAI-compatible endpoint and reuses `MISTRAL_API_KEY`; set `OPENAI_API_KEY`,
+`OPENAI_BASE_URL`, and `OPENAI_MODEL` to use a different backend.
 
 For general ingestion, querying, linting, and graph workflows, follow the
 runtime's `wiki-hosting` skill. Use this project's skill only for domain

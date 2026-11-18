@@ -15,13 +15,16 @@ cruft create https://github.com/EED85/eed-wiki-template
 ```
 
 Answer the prompts for the project name and slug, domain, language, and runtime
-image version. The generated folder is the Obsidian vault and its Git
-repository. Initialize and publish it as a new GitHub repository:
+image version. The generated folder is the Obsidian vault. Replace the example
+slug below with the one you selected, then initialize the vault as a Git
+repository and publish it:
 
 ```powershell
-Set-Location .\<project-slug>
+Set-Location .\my-knowledge-wiki
 git init -b main
-gh repo create <project-slug> --public --source . --remote origin --push
+git add -A
+git commit -m "Create wiki from eed-wiki-template"
+gh repo create my-knowledge-wiki --public --source . --remote origin --push
 ```
 
 The generated project pins the `eed-wiki-runtime` image in
@@ -43,6 +46,13 @@ preserving local edits where possible. Review the diff and resolve conflicts
 before committing the update. Keep `.cruft.json` in Git; it records the
 template reference required for future updates. Vanilla Cookiecutter creates
 projects but does not provide this update workflow.
+
+To update the runtime image pin as well, pass the new tag as a template
+variable, for example:
+
+```powershell
+cruft update --variables-to-update '{"runtime_image_tag":"0.2.0"}'
+```
 
 The generated domain skill is intentionally small. Keep domain vocabulary,
 taxonomy, and language there; defer ingest, query, lint, and Graphify mechanics
