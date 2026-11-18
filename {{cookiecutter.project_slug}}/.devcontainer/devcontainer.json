@@ -1,0 +1,16 @@
+{
+  "name": "{{ cookiecutter.project_name }}",
+  "image": "ghcr.io/eed85/eed-wiki-runtime:{{ cookiecutter.runtime_image_tag }}",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    "source=eed-vibe-home,target=/home/vscode/.vibe,type=volume"
+  ],
+  "containerEnv": {
+    "MISTRAL_API_KEY": "${localEnv:MISTRAL_API_KEY}",
+    "OPENAI_API_KEY": "${localEnv:OPENAI_API_KEY}",
+    "OPENAI_BASE_URL": "${localEnv:OPENAI_BASE_URL:https://api.mistral.ai/v1}",
+    "OPENAI_MODEL": "${localEnv:OPENAI_MODEL:mistral-large-latest}"
+  },
+  "remoteUser": "vscode"
+}
