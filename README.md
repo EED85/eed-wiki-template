@@ -6,8 +6,9 @@ skill, and a Dev Container pinned to a prebuilt `eed-wiki-runtime` image.
 
 ## Create a wiki
 
-Install [Cruft](https://cruft.github.io/cruft/) (Cookiecutter-based, with
-template update support) and generate a project:
+To create a project on the host, install
+[Cruft](https://cruft.github.io/cruft/) (Cookiecutter-based, with template
+update support) and generate it:
 
 ```powershell
 pipx install cruft
@@ -35,7 +36,9 @@ Container**. The project is content-only; it does not build an image.
 
 ## Keep an existing wiki up to date
 
-Commit or stash local work first, then run this from the generated project:
+Open the generated wiki in its Dev Container. Cruft is included in the runtime
+image, so commit or stash local work first, then run this in the container
+terminal from the project directory:
 
 ```powershell
 cruft update
