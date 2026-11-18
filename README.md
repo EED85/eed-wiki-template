@@ -47,12 +47,9 @@ before committing the update. Keep `.cruft.json` in Git; it records the
 template reference required for future updates. Vanilla Cookiecutter creates
 projects but does not provide this update workflow.
 
-To update the runtime image pin as well, pass the new tag as a template
-variable, for example:
-
-```powershell
-cruft update --variables-to-update '{"runtime_image_tag":"0.2.0"}'
-```
+Cruft updates the template-managed files. To move to a newer runtime image,
+update the image tag in the generated `.devcontainer/devcontainer.json`
+explicitly and commit that change.
 
 The generated domain skill is intentionally small. Keep domain vocabulary,
 taxonomy, and language there; defer ingest, query, lint, and Graphify mechanics
